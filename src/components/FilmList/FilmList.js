@@ -31,11 +31,11 @@ class FilmList extends Component {
     return(
       <View>
         <FlatList
-          data={this.films}
+          data={movies}
           renderItem={({ item }) => (
             <FilmItem
-              title={item.title}
-              icon={item.icon}
+              title={item.Title}
+              icon={item.Poster}
               onPress={() => this.handlePress(item.id)}
             />
           )}

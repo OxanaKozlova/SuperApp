@@ -6,10 +6,6 @@ import { styles } from "./styles";
 
 export default class FilmItem extends Component {
 
-  constructor(props) {
-      super(props);
-  }
-
   render(){
     return(
       <TouchableHighlight  onPress={this.props.onPress} underlayColor={Colors.border}>
