@@ -8,7 +8,7 @@ import { isEqual } from 'lodash';
 
 import FilmList from "../components/FilmList/FilmList";
 import Separator from "../components/FilmList/Separator";
-import { goToFilm, getMoviesList } from '../actions/index'
+import { goToFilm, getMoviesList } from '../actions/index';
 
 const mapStateToProps = state => ({
   movies: state.movies,

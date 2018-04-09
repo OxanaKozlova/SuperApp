@@ -12,7 +12,7 @@ export default class FilmItem extends Component {
          <View style={styles.row}>
            <Text style={styles.text} >{this.props.title}</Text>
            <Image
-               source={{url: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+               source={{url: this.props.poster}}
                 style={styles.icon}
                 removeClippedSubviews=
                 {true}

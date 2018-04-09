@@ -8,20 +8,9 @@ import Separator from './Separator';
 import FilmItem from './FilmItem';
 import { connect } from 'react-redux';
 
-class FilmList extends Component {
-
-  constructor(props) {
-      super(props);
-  }
-
-  static propTypes = {
-   dispatch: PropTypes.func,
-   navigation: PropTypes.object,
- };
+export default class FilmList extends Component {
 
  handlePress = (id) => {
-   console.log(id);
-   this.props.dispatch(goToFilm(id));
    this.props.navigation.navigate('Film');
  };
 
@@ -46,9 +35,3 @@ class FilmList extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  id: state.id
-});
-
-export default connect(mapStateToProps)(FilmList);
