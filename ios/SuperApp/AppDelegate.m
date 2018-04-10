@@ -14,8 +14,11 @@
 
 @implementation AppDelegate
 
+@import GoogleMaps;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [GMSServices provideAPIKey:@"AIzaSyC60BWTD57dPbv2SwF5Evv4OxmA8jP7VYQ"];
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
