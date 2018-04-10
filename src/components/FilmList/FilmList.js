@@ -7,13 +7,9 @@ import { goToFilm } from '../../actions/index'
 import Separator from './Separator';
 import FilmItem from './FilmItem';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-native';
 
 export default class FilmList extends Component {
-
- handlePress = (id) => {
-   this.props.navigation.navigate('Film');
- };
-
   render(){
     const { movies } = this.props;
 
@@ -22,14 +18,19 @@ export default class FilmList extends Component {
         <FlatList
           data={movies}
           renderItem={({ item }) => (
-            <FilmItem
-              title={item.Title}
-              icon={item.Poster}
-              onPress={() => this.handlePress(item.id)}
-            />
+            <Link
+              to={`/film/${item.imdbID}`}
+              >
+              <FilmItem
+                title={item.Title}
+                icon={item.Poster}
+                id={item.imdbID}
+              />
+            </Link>
+
           )}
           ItemSeparatorComponent={Separator}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.imdbID}
         />
       </View>
     );

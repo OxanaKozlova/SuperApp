@@ -1,13 +1,7 @@
 import { SHOW_FILM, FILM_LIST } from './types';
 import net from 'axios';
 
-
-export const getFilmList = () => ({
-  type: FILM_LIST
-});
-
-
-export const goToFilm = movie => ({
+export const getMovieSuccess = movie => ({
   type: SHOW_FILM,
   payload: { movie }
 });
@@ -17,7 +11,6 @@ const getMoviesSuccess = movies => ({
   payload: { movies },
 });
 
-
 export const getMoviesList = () => dispatch =>
   net.get('http://www.omdbapi.com/?apikey=c2180afa&s=batman').then((response) => {
     const movies = response.data.Search;
@@ -25,4 +18,13 @@ export const getMoviesList = () => dispatch =>
   })
   .catch(error => {
     console.log('get movies error', error);
+  });
+
+export const getMovie = (movieId) => dispatch =>
+  net.get('http://www.omdbapi.com/?apikey=c2180afa&i=' + movieId).then((response) => {
+    const movie = response.data;
+    dispatch(getMovieSuccess(movie));
+  })
+  .catch(error => {
+    console.log('get movie error', error);
   });

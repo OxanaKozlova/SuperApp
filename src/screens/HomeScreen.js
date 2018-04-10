@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import net from 'axios';
-import { isEqual } from 'lodash';
 
 import FilmList from "../components/FilmList/FilmList";
 import Separator from "../components/FilmList/Separator";
