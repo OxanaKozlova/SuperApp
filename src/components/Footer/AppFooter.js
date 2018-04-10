@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import {Footer, FooterTab, Button, Text} from 'native-base';
+import {  Link } from 'react-router-native'
+
+import HomeScreen from '../../screens/HomeScreen';
+import FilmScreen from '../../screens/FilmScreen';
+import SearchScreen from '../../screens/SearchScreen';
 
 export default class AppFooter extends Component {
 	render() {
@@ -7,13 +12,17 @@ export default class AppFooter extends Component {
       <Footer>
     		<FooterTab>
     			<Button active>
-    				<Text>Films</Text>
+          <Link to={`/`} >
+            <Text>Films</Text>
+          </Link>
     			</Button>
     			<Button>
-    				<Text>Search</Text>
+          <Link to={`/search`} >
+            <Text>Search</Text>
+          </Link>
     			</Button>
           <Button>
-            <Text>"Map"</Text>
+              <Text>GoogleMap</Text>
           </Button>
     		</FooterTab>
 	     </Footer>

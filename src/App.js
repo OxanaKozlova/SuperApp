@@ -8,30 +8,21 @@ import { NativeRouter, Route, Link } from 'react-router-native'
 
 import HomeScreen from './screens/HomeScreen';
 import FilmScreen from './screens/FilmScreen';
+import SearchScreen from './screens/SearchScreen';
 
 
 
 const store = createStore(reducers, applyMiddleware(thunk));
-// const Router = connect()(ReactNativeRouter.Router);
-
-// const store = createStore(
-//   combineReducers({
-//     reducers,
-//     routing: routerReducer
-//   }),
-//   applyMiddleware(thunk)
-// );
-
 
 export default class App extends Component {
   render() {
-
     return (
       <Provider store={store}>
         <NativeRouter>
         <View>
            <Route exact path="/" component={HomeScreen} />
            <Route path="/film/:id" component={FilmScreen} />
+           <Route path="/search" component={SearchScreen} />
          </View>
        </NativeRouter>
       </Provider>
