@@ -8,6 +8,7 @@ import net from 'axios';
 import FilmList from "../components/FilmList/FilmList";
 import Separator from "../components/FilmList/Separator";
 import { goToFilm, getMoviesList } from '../actions/index';
+import AppFooter from "../components/Footer/AppFooter";
 
 const mapStateToProps = state => ({
   movies: state.movies,
@@ -29,6 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
       <View>
         <StatusBar translucent={false} barStyle="default" />
         <FilmList movies={this.props.movies}/>
+        <AppFooter />
       </View>
     );
   }

@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import Film from "../components/Film/Film";
 import { getMovie } from '../actions/index'
+import AppFooter from "../components/Footer/AppFooter";
 
 const mapStateToProps = state => ({
   currentMovie: state.currentMovie,
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
       <View>
         <StatusBar translucent={false} barStyle="default"/>
         <Film currentMovie={this.props.currentMovie}/>
+        <AppFooter />
       </View>
     );
   }
