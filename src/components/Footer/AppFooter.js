@@ -22,7 +22,9 @@ export default class AppFooter extends Component {
           </Link>
     			</Button>
           <Button>
-              <Text>GoogleMap</Text>
+					<Link to={`/map`} >
+						<Text>Map</Text>
+					</Link>
           </Button>
     		</FooterTab>
 	     </Footer>

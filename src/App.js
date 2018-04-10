@@ -9,7 +9,7 @@ import { NativeRouter, Route, Link } from 'react-router-native'
 import HomeScreen from './screens/HomeScreen';
 import FilmScreen from './screens/FilmScreen';
 import SearchScreen from './screens/SearchScreen';
-
+import MapScreen from './screens/MapScreen';
 
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -23,6 +23,7 @@ export default class App extends Component {
            <Route exact path="/" component={HomeScreen} />
            <Route path="/film/:id" component={FilmScreen} />
            <Route path="/search" component={SearchScreen} />
+           <Route path="/map" component={MapScreen} />
          </View>
        </NativeRouter>
       </Provider>

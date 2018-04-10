@@ -1,4 +1,4 @@
-import { SHOW_FILM, FILM_LIST, FILM_SEARCH } from '../actions/types';
+import { SHOW_FILM, FILM_LIST, FILM_SEARCH, MAP } from '../actions/types';
 
 export const initalState = {
 	movies: null,
@@ -15,6 +15,9 @@ export default (state = initalState, action) => {
     }
 		case FILM_SEARCH: {
 			return Object.assign({}, state, { movies: action.payload.movies });
+		}
+		case MAP: {
+			return Object.assign({}, state, { location: action.payload.position });
 		}
 		default:
 		{

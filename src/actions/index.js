@@ -1,4 +1,4 @@
-import { SHOW_FILM, FILM_LIST, FILM_SEARCH } from './types';
+import { SHOW_FILM, FILM_LIST, FILM_SEARCH, MAP } from './types';
 import net from 'axios';
 
 export const getMovieSuccess = movie => ({
@@ -14,6 +14,11 @@ const getMoviesSuccess = movies => ({
 const searchMoviesSuccess = movies => ({
   type: FILM_SEARCH,
   payload: { movies },
+});
+
+const navigationInfo = position => ({
+  type: MAP,
+  payload: { position },
 });
 
 export const getMoviesList = () => dispatch =>
@@ -42,3 +47,13 @@ export const searchMovies = (phrase) => dispatch =>
   .catch(error => {
     console.log('get movies error', error);
   });
+
+  export const getLocation = () => dispatch => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        dispatch(navigationInfo(position.coords));
+
+      },
+      (error) => {console.log('get location error', error)}
+  )
+};
