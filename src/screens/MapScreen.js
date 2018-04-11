@@ -1,78 +1,78 @@
-import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import net from 'axios';
-import { isEqual } from 'lodash';
+import React, {Component} from 'react';
+import {View} from 'react-native';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {isEqual} from 'lodash';
 
-import { getLocation } from '../actions/index';
+import {getLocation} from '../actions/index';
 import AppFooter from "../components/Footer/AppFooter";
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import MapView from 'react-native-maps';
 
 
 const mapStateToProps = state => ({
-  location: state.location,
+    location: state.location,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getLocation: bindActionCreators(getLocation, dispatch),
+    getLocation: bindActionCreators(getLocation, dispatch),
 });
 
- class MapScreen extends Component {
+class MapScreen extends Component {
 
-   constructor(props) {
-     super(props);
+    constructor(props) {
+        super(props);
 
-     this.state = {
-       location: {longitude: 53.98825, latitude: 27.4324}
-     };
-   }
+        this.state = {
+            location: {longitude: 53.98825, latitude: 27.4324}
+        };
+    }
 
-   componentWillReceiveProps(newProps) {
-     if (!isEqual(this.props, newProps)) {
-       this.setState({
-         location: newProps.location,
-       });
-     }
-   }
+    componentWillReceiveProps(newProps) {
+        if (!isEqual(this.props, newProps)) {
+            this.setState({
+                location: newProps.location,
+            });
+        }
+    }
 
- componentDidMount() {
-   this.props.getLocation();
- }
+    componentWillMount() {
+        this.props.getLocation();
+    }
 
-  render() {
+    render() {
+        const latitudeDelta = 0.015;
+        const longitudeDelta = 0.0121;
 
-    const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flex: 1,
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    flex: 1,
-  },
-});
-console.log(this.state.location);
-    return (
-      <View style ={styles.container}>
-          <MapView
-            style={styles.map}
-            region={{
-              latitude: this.state.location.latitude,
-              longitude: this.state.location.longitude,
-              latitudeDelta: 0.015,
-              longitudeDelta: 0.0121,
-            }}
-          >
-          </MapView>
-          <AppFooter />
-        </View>
-    );
-  }
+        const styles = StyleSheet.create({
+            container: {
+                ...StyleSheet.absoluteFillObject,
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                flex: 1,
+            },
+            map: {
+                ...StyleSheet.absoluteFillObject,
+                flex: 1,
+            },
+        });
+
+        return (
+            <View style={styles.container}>
+                <MapView
+                    style={styles.map}
+                    region={{
+                        latitude: this.state.location.latitude,
+                        longitude: this.state.location.longitude,
+                        latitudeDelta: latitudeDelta,
+                        longitudeDelta: longitudeDelta,
+                    }}
+                >
+                </MapView>
+                <AppFooter/>
+            </View>
+        );
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);

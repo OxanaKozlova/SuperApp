@@ -9,7 +9,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "hoist-non-react-statics": "2.3.0",
+    "lodash": "^4.17.5",
     "native-base": "^2.4.1",
+    "random-words": "^1.0.0",
     "react": "^16.3.1",
     "react-native": "^0.55.1",
     "react-native-maps": "^0.21.0",
