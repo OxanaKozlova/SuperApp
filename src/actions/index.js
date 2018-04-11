@@ -40,6 +40,7 @@ export const getMoviesList = () => dispatch => {
     })
         .catch(error => {
             console.log('get movies error', error);
+            alert('Something went wrong. Check Internet connection or try again later.');
         });
 
 };
@@ -59,6 +60,7 @@ export const getMovie = (movieId) => dispatch =>
     })
         .catch(error => {
             console.log('get movie error', error);
+            alert('Something went wrong. Check Internet connection or try again later.');
         });
 
 export const searchMovies = (phrase) => dispatch =>
@@ -75,6 +77,7 @@ export const searchMovies = (phrase) => dispatch =>
     })
         .catch(error => {
             console.log('get movies error', error);
+            alert('Something went wrong. Check Internet connection or try again later.');
         });
 
 export const getLocation = () => dispatch => {
