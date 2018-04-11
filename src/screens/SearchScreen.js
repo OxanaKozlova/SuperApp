@@ -10,6 +10,7 @@ import FilmList from "../components/FilmList/FilmList";
 import Separator from "../components/FilmList/Separator";
 import { goToFilm, getMoviesList, searchMovies } from '../actions/index';
 import AppFooter from "../components/Footer/AppFooter";
+import Search from '../components/Search/Search';
 
 const mapStateToProps = state => ({
   movies: state.movies,
@@ -48,22 +49,15 @@ const mapDispatchToProps = (dispatch) => ({
     }
   }
 
-   componentWillMount() {
-
-   }
-
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <StatusBar translucent={false} barStyle="default" />
-        <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        <Search
           onChangeText={this.onChangeText}
           value={this.state.searchText}
-        />
-        <TouchableOpacity onPress={this.onPress} style={{height: 50, borderColor: 'gray', borderWidth: 1}}>
-
-        </TouchableOpacity>
+          onPress={this.onPress}
+          />
         <FilmList movies={this.state.movies}/>
         <AppFooter />
       </View>

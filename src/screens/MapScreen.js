@@ -11,6 +11,7 @@ import AppFooter from "../components/Footer/AppFooter";
 import { StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 
+
 const mapStateToProps = state => ({
   location: state.location,
 });
@@ -25,7 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
      super(props);
 
      this.state = {
-       location: {longitude: 37.78825, latitude: -122.4324}
+       location: {longitude: 53.98825, latitude: 27.4324}
      };
    }
 
@@ -46,13 +47,13 @@ const mapDispatchToProps = (dispatch) => ({
     const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    flex: 1,
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    flex: 1,
   },
 });
 console.log(this.state.location);
@@ -68,6 +69,7 @@ console.log(this.state.location);
             }}
           >
           </MapView>
+          <AppFooter />
         </View>
     );
   }

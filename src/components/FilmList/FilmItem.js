@@ -8,15 +8,14 @@ import { Link } from 'react-router-native';
 export default class FilmItem extends Component {
 
   render(){
-    
+
     return(
          <View style={styles.row}>
             <Text style={styles.text}> {this.props.title}</Text>
            <Image
-               source={{url: this.props.poster}}
+               source={{uri: this.props.icon}}
                 style={styles.icon}
-                removeClippedSubviews={true}
-                 resizeMethod="resize"
+
              />
          </View>
     );

@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <StatusBar translucent={false} barStyle="default" />
         <FilmList movies={this.props.movies}/>
         <AppFooter />

@@ -11,7 +11,6 @@ import FilmScreen from './screens/FilmScreen';
 import SearchScreen from './screens/SearchScreen';
 import MapScreen from './screens/MapScreen';
 
-
 const store = createStore(reducers, applyMiddleware(thunk));
 
 export default class App extends Component {
@@ -19,7 +18,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NativeRouter>
-        <View>
+        <View style={{flex: 1}}>
            <Route exact path="/" component={HomeScreen} />
            <Route path="/film/:id" component={FilmScreen} />
            <Route path="/search" component={SearchScreen} />

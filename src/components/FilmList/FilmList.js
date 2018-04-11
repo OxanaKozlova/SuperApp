@@ -14,7 +14,7 @@ export default class FilmList extends Component {
     const { movies } = this.props;
 
     return(
-      <View>
+      <View style={styles.container}>
         <FlatList
           data={movies}
           renderItem={({ item }) => (

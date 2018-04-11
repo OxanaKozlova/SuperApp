@@ -11,7 +11,7 @@ export default class AppFooter extends Component {
     return (
       <Footer>
     		<FooterTab>
-    			<Button active>
+    			<Button>
           <Link to={`/`} >
             <Text>Films</Text>
           </Link>

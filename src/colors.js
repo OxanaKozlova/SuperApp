@@ -1,8 +1,4 @@
 export default Colors = {
-  primaryBlue: '#4F6D7A',
-  primaryOrange: '#D57A66',
-  primaryGreen: '#00BD9D',
-  primaryPurple: '#9E768F',
 
   white: '#FFFFFF',
   lightGray: '#F0F0F0',
