@@ -1,6 +1,10 @@
 import { SHOW_FILM, FILM_LIST, FILM_SEARCH, MAP } from './types';
 import net from 'axios';
 
+const API_KEY = 'c2180afa';
+const URL = 'http://www.omdbapi.com/';
+const YEAR = 2018;
+
 export const getMovieSuccess = movie => ({
   type: SHOW_FILM,
   payload: { movie }
@@ -22,13 +26,14 @@ const navigationInfo = position => ({
 });
 
 export const getMoviesList = () => dispatch =>
-  net.get('http://www.omdbapi.com/?apikey=c2180afa&s=batman').then((response) => {
+  net.get(`${URL}?apikey=${API_KEY}&s=batman&y=2018`).then((response) => {
     const movies = response.data.Search;
     dispatch(getMoviesSuccess(movies));
   })
   .catch(error => {
     console.log('get movies error', error);
   });
+
 
 export const getMovie = (movieId) => dispatch =>
   net.get('http://www.omdbapi.com/?apikey=c2180afa&i=' + movieId).then((response) => {
