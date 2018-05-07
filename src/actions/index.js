@@ -42,7 +42,6 @@ export const getMoviesList = () => dispatch => {
             console.log('get movies error', error);
             alert('Something went wrong. Check Internet connection or try again later.');
         });
-
 };
 
 
